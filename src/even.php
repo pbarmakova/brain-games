@@ -5,14 +5,16 @@ namespace BrainGames\Even;
 use function cli\line;
 use function cli\prompt;
 
-function evenNoEven ($num) {
-    if($num % 2 === 0) {
+function evenNoEven($num)
+{
+    if ($num % 2 === 0) {
         return 'yes';
-    } else 
+    } else {
         return 'no';
+    }
 }
 
-function even ($name)
+function even($name)
 {
     $flag = 0;
     line('Answer "yes" if the number is even, otherwise answer "no".');
@@ -21,7 +23,7 @@ function even ($name)
         line("Question: %d", $num);
         $answ = prompt('Your answer ');
         $correctNum = evenNoEven($num);
-        if ($answ === $correctNum){
+        if ($answ === $correctNum) {
             line('Correct!');
             $flag++;
         } else {
@@ -31,7 +33,6 @@ function even ($name)
         }
     }
     if ($flag === 3) {
-        line ("Congratulations, %s", $name);
+        line("Congratulations, %s", $name);
     }
-    
 }
