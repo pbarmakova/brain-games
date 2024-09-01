@@ -20,9 +20,17 @@ function even($name)
     line('Answer "yes" if the number is even, otherwise answer "no".');
     while ($flag != 3) {
         $num = rand(0, 100);
+
+        // Выводим вопрос
         line("Question: %d", $num);
+
+        // Получаем ответ от пользователя
         $answ = prompt('Your answer ');
+
+        // Проверка числа на четность
         $correctNum = evenNoEven($num);
+
+        // Сравниваем ответ пользователя с результатом
         if ($answ === $correctNum) {
             line('Correct!');
             $flag++;
@@ -33,6 +41,6 @@ function even($name)
         }
     }
     if ($flag === 3) {
-        line("Congratulations, %s", $name);
+        line("Congratulations, %s!", $name);
     }
 }

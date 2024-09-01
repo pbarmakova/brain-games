@@ -21,6 +21,10 @@ brain-games:
 brain-even:
 	./bin/brain-even
 
+# Запуск проекта на калькулятор
+brain-calc:
+	./bin/brain-calc
+
 # Запуск тестов
 test:
 	$(PHPUNIT)

@@ -7,12 +7,14 @@
         },
 	    "files": [
 		"src/Cli.php",
-        "src/even.php"
+        "src/games/even.php",
+        "src/games/calc.php"
 	     ]
     },
      "bin": [
         "bin/brain-games",
-        "bin/brain-even"
+        "bin/brain-even",
+        "bin/brain-calc"
 	],
     "authors": [
         {
