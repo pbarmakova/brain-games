@@ -17,6 +17,10 @@ install:
 brain-games:
 	./bin/$(TARGET)
 
+# Запуск проекта на четность
+brain-even:
+	./bin/brain-even
+
 # Запуск тестов
 test:
 	$(PHPUNIT)
@@ -24,6 +28,10 @@ test:
 # Проверка файла composer.json на правильность
 validate:
 	$(COMPOSER) validate
+
+# Запуск phpcs - сниффер
+lint:
+	composer exec --verbose phpcs -- --standard=PSR12 src bin
 
 # Очистка временных файлов
 clean:

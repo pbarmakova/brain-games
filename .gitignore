@@ -1,2 +1,5 @@
 # Директория зависимостей Composer
 /vendor/
+
+# Файл конфигурации Composer
+/composer.lock
