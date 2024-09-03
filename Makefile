@@ -1,3 +1,6 @@
+# Цель для начальной настройки проекта
+setup: install validate lint
+
 # Имя цели (или выходного файла)
 TARGET = brain-games
 
@@ -6,7 +9,7 @@ PHP = php
 COMPOSER = composer
 
 # Правило по умолчанию
-all: install
+all: setup
 
 # Установка зависимостей с Composer
 install:
