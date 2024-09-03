@@ -6,3 +6,7 @@
 ## Установление зависимостей
 
 [![asciinema](https://asciinema.org/a/lvfy8UNqcRriWEVtALQ3Cei33.svg)](https://asciinema.org/a/lvfy8UNqcRriWEVtALQ3Cei33)
+
+## Приветствие
+
+[![asciinema](https://asciinema.org/a/uGoFaSwZtJUeoQOMAB0k0hCgS)](https://asciinema.org/a/uGoFaSwZtJUeoQOMAB0k0hCgS)
