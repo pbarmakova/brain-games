@@ -10,3 +10,24 @@
 ## Приветствие
 
 [![asciinema](https://asciinema.org/a/uGoFaSwZtJUeoQOMAB0k0hCgS)](https://asciinema.org/a/uGoFaSwZtJUeoQOMAB0k0hCgS)
+
+## Проверка на четность
+
+[![asciinema](https://asciinema.org/a/CdtGy472WhC26vefdlYfjyieJ)](https://asciinema.org/a/CdtGy472WhC26vefdlYfjyieJ)
+
+## Калькулятор
+
+[![asciinema](https://asciinema.org/a/OZpMdSSHZJhr3XRN3Gll6SBtn)](https://asciinema.org/a/OZpMdSSHZJhr3XRN3Gll6SBtn)
+
+## НОД
+
+[![asciinema](https://asciinema.org/a/of95Eli1wHzN3f5xZVqdVo8yS)](https://asciinema.org/a/of95Eli1wHzN3f5xZVqdVo8yS)
+
+## Прогрессия
+
+[![asciinema](https://asciinema.org/a/hCWVfTXOeckhHeNglZnoCOGXq)](https://asciinema.org/a/hCWVfTXOeckhHeNglZnoCOGXq)
+
+## Простое число
+
+[![asciinema](https://asciinema.org/a/3Jtn0s3lflk2yDd5C4RnoE2xV)](https://asciinema.org/a/3Jtn0s3lflk2yDd5C4RnoE2xV)
+
