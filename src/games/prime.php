@@ -22,8 +22,8 @@ function prime($name)
 {
     $flag = 0;
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
-    while ($flag != 3) {
-        $num = rand(0, 100);
+    while ($flag < 3) {
+        $num = rand(2, 100); // Изменено на 2, чтобы избежать чисел <= 1
 
         // Выводим вопрос
         line("Question: %d", $num);
@@ -31,20 +31,18 @@ function prime($name)
         // Получаем ответ от пользователя
         $answ = prompt('Your answer ');
 
-        // Проверка числа на четность
-        $correctNum = primeCheck($num);
+        // Проверка числа на простоту
+        $correctAnswer = primeCheck($num);
 
         // Сравниваем ответ пользователя с результатом
-        if ($answ === $correctNum) {
+        if ($answ === $correctAnswer) {
             line('Correct!');
             $flag++;
         } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answ, $correctNum);
+            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answ, $correctAnswer);
             line("Let's try again, %s!", $name);
-            break;
+            return; // Изменен на return, чтобы не продолжать при ошибке
         }
     }
-    if ($flag === 3) {
-        line("Congratulations, %s!", $name);
-    }
+    line("Congratulations, %s!", $name);
 }
