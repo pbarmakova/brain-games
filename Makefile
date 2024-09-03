@@ -33,6 +33,10 @@ brain-gcd:
 brain-progression:
 	./bin/brain-progression
 
+# Запуск проекта на простое число
+brain-prime:
+	./bin/brain-prime
+
 # Запуск тестов
 test:
 	$(PHPUNIT)

@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '../../vendor/autoload.php';
+
+$name = BrainGames\Cli\welcome();
+BrainGames\Prime\prime($name);
