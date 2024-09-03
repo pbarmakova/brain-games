@@ -4,7 +4,6 @@ TARGET = brain-games
 # Переменные
 PHP = php
 COMPOSER = composer
-PHPUNIT = .vendor/bin/phpunit
 
 # Правило по умолчанию
 all: install
@@ -36,10 +35,6 @@ brain-progression:
 # Запуск проекта на простое число
 brain-prime:
 	./bin/brain-prime
-
-# Запуск тестов
-test:
-	$(PHPUNIT)
 
 # Проверка файла composer.json на правильность
 validate:
