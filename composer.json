@@ -8,13 +8,17 @@
 	    "files": [
 		"src/Cli.php",
         "src/games/even.php",
-        "src/games/calc.php"
+        "src/games/calc.php",
+        "src/games/gcd.php",
+        "src/games/progress.php"
 	     ]
     },
      "bin": [
         "bin/brain-games",
         "bin/brain-even",
-        "bin/brain-calc"
+        "bin/brain-calc",
+        "bin/brain-gcd",
+        "bin/brain-progression"
 	],
     "authors": [
         {

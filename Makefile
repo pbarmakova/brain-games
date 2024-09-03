@@ -25,6 +25,14 @@ brain-even:
 brain-calc:
 	./bin/brain-calc
 
+# Запуск проекта на нод
+brain-gcd:
+	./bin/brain-gcd
+
+# Запуск проекта на арифметическую прогрессию
+brain-progression:
+	./bin/brain-progression
+
 # Запуск тестов
 test:
 	$(PHPUNIT)
