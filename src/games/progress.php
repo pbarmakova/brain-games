@@ -20,8 +20,7 @@ function progress($name)
         $missingIndex = rand(0, 9);
         $missingNumber = $progression[$missingIndex];
         $progression[$missingIndex] = "..";
-        line("Question: ");
-        line(implode(' ', $progression));
+        line("Question: " . implode(' ', $progression));
         $answ = (int)prompt('Your answer ');
         if ($answ === $missingNumber) {
             line('Correct!');
