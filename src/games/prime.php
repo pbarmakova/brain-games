@@ -23,7 +23,7 @@ function prime($name)
     $flag = 0;
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
     while ($flag < 3) {
-        $num = rand(2, 100); // Изменено на 2, чтобы избежать чисел <= 1
+        $num = rand(0, 100);
 
         // Выводим вопрос
         line("Question: %d", $num);
