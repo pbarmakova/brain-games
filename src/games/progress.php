@@ -5,6 +5,11 @@ namespace BrainGames\Progress;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * Main function for the "progress" game.
+ *
+ * @param string $name The number to check.
+ */
 function progress($name)
 {
     $flag = 0;

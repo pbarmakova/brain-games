@@ -5,6 +5,12 @@ namespace BrainGames\Prime;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * Checks if a number is prime.
+ *
+ * @param  int $number The number to check.
+ * @return string "yes" if the number is primeß, "no" otherwise.
+ */
 function primeCheck($number)
 {
     if ($number <= 1) {
@@ -18,6 +24,11 @@ function primeCheck($number)
     return 'yes';
 }
 
+/**
+ * Main function for the "prime" game.
+ *
+ * @param string $name The number to check.
+ */
 function prime($name)
 {
     $flag = 0;

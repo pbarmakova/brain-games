@@ -5,6 +5,13 @@ namespace BrainGames\Gcd;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * Calculates the greatest common divisor of two numbers.
+ *
+ * @param  int $a The first number.
+ * @param  int $b The second number.
+ * @return int The greatest common divisor.
+ */
 function gcdGame(int $a, int $b): int
 {
     while ($b !== 0) {
@@ -15,6 +22,11 @@ function gcdGame(int $a, int $b): int
     return $a;
 }
 
+/**
+ * Main function for the "gcd" game.
+ *
+ * @param string $name The number to check.
+ */
 function gcd($name)
 {
     $flag = 0;

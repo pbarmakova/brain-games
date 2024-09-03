@@ -5,6 +5,11 @@ namespace BrainGames\Calc;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * Main function for the "calc" game.
+ *
+ * @param string $name The name of the user.
+ */
 function calc($name)
 {
     $operators = ["+", "-", "*"];

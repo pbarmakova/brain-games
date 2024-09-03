@@ -5,6 +5,12 @@ namespace BrainGames\Even;
 use function cli\line;
 use function cli\prompt;
 
+/**
+ * Checks if a number is even or odd.
+ *
+ * @param  int $num The number to check.
+ * @return string "yes" if the number is even, "no" otherwise.
+ */
 function evenNoEven($num)
 {
     if ($num % 2 === 0) {
@@ -14,6 +20,11 @@ function evenNoEven($num)
     }
 }
 
+/**
+ * Main function for the "even" game.
+ *
+ * @param string $name The name of the user.
+ */
 function even($name)
 {
     $flag = 0;
