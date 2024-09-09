@@ -24,7 +24,7 @@ function frameGame($condition, callable $NumbersForReserch)
         [$question, $correctAnswer] = $NumbersForReserch();
         line("Question: {$question}");
         $answ = prompt('Your answer ');
-        if ((string)$answ === (string)$correctAnswer) {
+        if ($answ === (string)$correctAnswer) {
             $flag++;
             line('Correct!');
         } else {
