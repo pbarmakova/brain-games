@@ -2,16 +2,14 @@
     "name": "hexlet/code",
     "description": "project brain games",
     "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        },
 	    "files": [
 		"src/Cli.php",
-        "src/games/even.php",
-        "src/games/calc.php",
-        "src/games/gcd.php",
-        "src/games/progress.php",
-        "src/games/prime.php"
+        "src/Games/Even.php",
+        "src/Games/Calc.php",
+        "src/Games/Gcd.php",
+        "src/Games/Progress.php",
+        "src/Games/Prime.php",
+        "src/Engine.php"
 	     ]
     },
      "bin": [

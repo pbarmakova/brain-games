@@ -2,8 +2,7 @@
 
 namespace BrainGames\Prime;
 
-use function cli\line;
-use function cli\prompt;
+use function BrainGames\Engine\frameGame;
 
 /**
  * Checks if a number is prime.
@@ -24,36 +23,13 @@ function primeCheck($number)
     return 'yes';
 }
 
-/**
- * Main function for the "prime" game.
- *
- * @param string $name The number to check.
- */
-function prime($name)
+function prime()
 {
-    $flag = 0;
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
-    while ($flag < 3) {
-        $num = rand(0, 100);
-
-        // Выводим вопрос
-        line("Question: %d", $num);
-
-        // Получаем ответ от пользователя
-        $answ = prompt('Your answer ');
-
-        // Проверка числа на простоту
-        $correctAnswer = primeCheck($num);
-
-        // Сравниваем ответ пользователя с результатом
-        if ($answ === $correctAnswer) {
-            line('Correct!');
-            $flag++;
-        } else {
-            line("'%s' is wrong answer ;(. Correct answer was '%s'.", $answ, $correctAnswer);
-            line("Let's try again, %s!", $name);
-            return; // Изменен на return, чтобы не продолжать при ошибке
-        }
-    }
-    line("Congratulations, %s!", $name);
+    $rule = ('Answer "yes" if given number is prime. Otherwise answer "no".');
+    $NumbersForReserch = function () {
+        $randomNumber = rand(0, 100);
+        $correctAnswer = primeCheck($randomNumber);
+        return [$randomNumber, $correctAnswer];
+    };
+    frameGame($rule, $NumbersForReserch);
 }

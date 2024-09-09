@@ -2,8 +2,7 @@
 
 namespace BrainGames\Gcd;
 
-use function cli\line;
-use function cli\prompt;
+use function BrainGames\Engine\frameGame;
 
 /**
  * Calculates the greatest common divisor of two numbers.
@@ -22,31 +21,15 @@ function gcdGame(int $a, int $b): int
     return $a;
 }
 
-/**
- * Main function for the "gcd" game.
- *
- * @param string $name The number to check.
- */
-function gcd($name)
+function gcd()
 {
-    $flag = 0;
-    line('Find the greatest common divisor of given numbers.');
-    while ($flag < 3) {
-        $numOne = rand(1, 100);
-        $numTwo = rand(1, 100);
-        line("Question: %d %d", $numOne, $numTwo);
-        $answ = (int)prompt('Your answer ');
-        $correctNum = gcdGame($numOne, $numTwo);
-        if ($answ === $correctNum) {
-            line('Correct!');
-            $flag++;
-        } else {
-            line("'%d' is wrong answer ;(. Correct answer was '%d'.", $answ, $correctNum);
-            line("Let's try again, %s!", $name);
-            break;
-        }
-    }
-    if ($flag === 3) {
-        line("Congratulations, %s!", $name);
-    }
+    $rule = ('Find the greatest common divisor of given numbers.');
+    $NumbersForReserch = function () {
+        $numberOne = rand(1, 100);
+        $numberTwo = rand(1, 100);
+        $correctNum = gcdGame($numberOne, $numberTwo);
+        $question = ("{$numberOne} {$numberTwo}");
+        return [$question, $correctNum];
+    };
+    frameGame($rule, $NumbersForReserch);
 }

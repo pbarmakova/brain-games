@@ -2,53 +2,33 @@
 
 namespace BrainGames\Calc;
 
-use function cli\line;
-use function cli\prompt;
+use function BrainGames\Engine\frameGame;
 
-/**
- * Main function for the "calc" game.
- *
- * @param string $name The name of the user.
- */
-function calc($name)
+function result($operandOne, $operandTwo, $randomOperator)
 {
-    $operators = ["+", "-", "*"];
-    $flag = 0;
-    line('What is the result of the expression?');
-    while ($flag != 3) {
-        $numOne = rand(0, 100);
-        $numTwo = rand(0, 100);
+    // Определяем результат оператора
+    switch ($randomOperator) {
+        case '+':
+            return($operandOne + $operandTwo);
+        case '-':
+            return($operandOne - $operandTwo);
+        case '*':
+            return($operandOne * $operandTwo);
+    }
+}
+
+function calc()
+{
+    $rule = ('What is the result of the expression?');
+
+    $NumbersForReserch = function () {
+        $operators = ["+", "-", "*"];
+        $operandOne = rand(0, 100);
+        $operandTwo = rand(0, 100);
         $randomOperator = $operators[array_rand($operators)];
-        // Определяем результат оператора
-        switch ($randomOperator) {
-            case '+':
-                $result = $numOne + $numTwo;
-                break;
-            case '-':
-                $result = $numOne - $numTwo;
-                break;
-            case '*':
-                $result = $numOne * $numTwo;
-                break;
-        }
-
-        // Выводим вопрос
-        line("Question: %d %s %d", $numOne, $randomOperator, $numTwo);
-
-        // Получаем ответ от пользователя и приводим его к числу
-        $answ = (int)prompt('Your answer ');
-
-        // Сравниваем ответ пользователя с результатом
-        if ($answ === $result) {
-            $flag++;
-            line('Correct!');
-        } else {
-            line("'%d' is wrong answer ;(. Correct answer was '%d'.", $answ, $result);
-            line("Let's try again, %s!", $name);
-            break;
-        }
-    }
-    if ($flag === 3) {
-        line("Congratulations, %s!", $name);
-    }
+        $question = ("{$operandOne} {$randomOperator} {$operandTwo}");
+        $correctQuestion = result($operandOne, $operandTwo, $randomOperator);
+        return [$question, $correctQuestion];
+    };
+    frameGame($rule, $NumbersForReserch);
 }
