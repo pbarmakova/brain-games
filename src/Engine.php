@@ -8,7 +8,8 @@ use function cli\prompt;
 /**
  * Main function for the "calc" game.
  *
- * @param string $condition The condition before game.
+ * @param string $condition The condition before the game.
+ * @param callable $NumbersForReserch Callback function that provides a question and the correct answer.
  */
 function frameGame($condition, callable $NumbersForReserch)
 {

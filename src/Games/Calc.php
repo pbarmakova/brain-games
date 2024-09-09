@@ -4,7 +4,7 @@ namespace BrainGames\Games;
 
 use function BrainGames\Engine\frameGame;
 
-function result($operandOne, $operandTwo, $randomOperator)
+function result(int $operandOne, int $operandTwo, string $randomOperator): int
 {
     // Определяем результат оператора
     switch ($randomOperator) {
