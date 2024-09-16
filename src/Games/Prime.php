@@ -25,7 +25,7 @@ function isPrime(int $number): bool
 
 function runPrime()
 {
-    $rule = 'Answer "yes" if the given number is prime. Otherwise answer "no".';
+    $rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
     $generateQuestion = function () {
         $randomNumber = rand(MIN_OPERAND, MAX_OPERAND);
