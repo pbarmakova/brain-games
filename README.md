@@ -28,16 +28,10 @@ Composer 2.6.6
 3. Устанавливаем зависимости:
     
     ```bash
-    make setup
-    ```
-    
-4. Добавляем права на исполнение файлов в директории bin:
-    
-    ```bash
-    chmod +x ./bin/*
+    make install
     ```
 
-[![asciinema](https://asciinema.org/a/lvfy8UNqcRriWEVtALQ3Cei33.svg)](https://asciinema.org/a/lvfy8UNqcRriWEVtALQ3Cei33)
+[![asciinema](https://asciinema.org/a/hnkdAttANdXXlf3l73V4JhyWV.svg)](https://asciinema.org/a/hnkdAttANdXXlf3l73V4JhyWV)
 
 ## Команды для запуска игр
 

@@ -8,28 +8,32 @@ use function BrainGames\Engine\frameGame;
  * Checks if a number is prime.
  *
  * @param  int $number The number to check.
- * @return string "yes" if the number is primeß, "no" otherwise.
+ * @return bool True if the number is prime, false otherwise.
  */
-function primeCheck($number)
+function isPrime(int $number): bool
 {
     if ($number <= 1) {
-        return 'no';
+        return false;
     }
     for ($i = 2; $i <= sqrt($number); $i++) {
         if ($number % $i === 0) {
-            return 'no';
+            return false;
         }
     }
-    return 'yes';
+    return true;
 }
 
-function prime()
+function runPrime()
 {
-    $rule = ('Answer "yes" if given number is prime. Otherwise answer "no".');
-    $NumbersForReserch = function () {
-        $randomNumber = rand(0, 100);
-        $correctAnswer = primeCheck($randomNumber);
+    $rule = 'Answer "yes" if the given number is prime. Otherwise answer "no".';
+
+    $generateQuestion = function () {
+        $randomNumber = rand(MIN_OPERAND, MAX_OPERAND);
+        $isPrime = isPrime($randomNumber);
+        $correctAnswer = $isPrime ? 'yes' : 'no';
+
         return [$randomNumber, $correctAnswer];
     };
-    frameGame($rule, $NumbersForReserch);
+
+    frameGame($rule, $generateQuestion);
 }

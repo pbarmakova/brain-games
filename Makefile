@@ -1,23 +1,10 @@
-# Цель для начальной настройки проекта
-setup: install validate lint
-
-# Имя цели (или выходного файла)
-TARGET = brain-games
-
-# Переменные
-PHP = php
-COMPOSER = composer
-
-# Правило по умолчанию
-all: setup
-
 # Установка зависимостей с Composer
 install:
-	$(COMPOSER) install
+	composer install
 
 # Запуск проекта
 brain-games:
-	./bin/$(TARGET)
+	./bin/brain-games
 
 # Запуск проекта на четность
 brain-even:
@@ -41,13 +28,8 @@ brain-prime:
 
 # Проверка файла composer.json на правильность
 validate:
-	$(COMPOSER) validate
+	composer validate
 
 # Запуск phpcs - сниффер
 lint:
 	composer exec --verbose phpcs -- --standard=PSR12 src bin
-
-# Очистка временных файлов
-clean:
-	rm -rf vendor
-	rm -rf *.log

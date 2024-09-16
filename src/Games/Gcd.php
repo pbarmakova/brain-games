@@ -11,7 +11,7 @@ use function BrainGames\Engine\frameGame;
  * @param  int $b The second number.
  * @return int The greatest common divisor.
  */
-function gcdGame(int $a, int $b): int
+function gcd(int $a, int $b): int
 {
     while ($b !== 0) {
         $temp = $b;
@@ -21,15 +21,17 @@ function gcdGame(int $a, int $b): int
     return $a;
 }
 
-function gcd()
+function runGcdGame()
 {
-    $rule = ('Find the greatest common divisor of given numbers.');
-    $NumbersForReserch = function () {
-        $numberOne = rand(1, 100);
-        $numberTwo = rand(1, 100);
-        $correctNum = gcdGame($numberOne, $numberTwo);
-        $question = ("{$numberOne} {$numberTwo}");
-        return [$question, $correctNum];
+    $rule = 'Find the greatest common divisor of given numbers.';
+
+    $generateQuestion = function () {
+        $firstNumber = rand(MIN_OPERAND, MAX_OPERAND);
+        $secondNumber = rand(MIN_OPERAND, MAX_OPERAND);
+        $correctAnswer = gcd($firstNumber, $secondNumber);
+        $question = "{$firstNumber} {$secondNumber}";
+        return [$question, $correctAnswer];
     };
-    frameGame($rule, $NumbersForReserch);
+
+    frameGame($rule, $generateQuestion);
 }

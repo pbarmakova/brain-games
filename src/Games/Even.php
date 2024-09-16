@@ -8,24 +8,24 @@ use function BrainGames\Engine\frameGame;
  * Checks if a number is even or odd.
  *
  * @param  int $num The number to check.
- * @return string "yes" if the number is even, "no" otherwise.
+ * @return bool True if the number is even, false otherwise.
  */
-function evenNoEven($num)
+function isEven(int $num): bool
 {
-    if ($num % 2 === 0) {
-        return 'yes';
-    } else {
-        return 'no';
-    }
+    return $num % 2 === 0;
 }
 
-function even()
+function runEven()
 {
-    $rule = ('Answer "yes" if the number is even, otherwise answer "no".');
-    $NumbersForReserch = function () {
-        $randomNumber = rand(0, 100);
-        $correctAnsw = evenNoEven($randomNumber);
-        return [$randomNumber, $correctAnsw];
+    $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+    $generateQuestion = function () {
+        $randomNumber = rand(MIN_OPERAND, MAX_OPERAND);
+        $isEven = isEven($randomNumber);
+        $correctAnswer = $isEven ? 'yes' : 'no';
+
+        return [$randomNumber, $correctAnswer];
     };
-    frameGame($rule, $NumbersForReserch);
+
+    frameGame($rule, $generateQuestion);
 }

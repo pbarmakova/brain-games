@@ -6,32 +6,37 @@ use function cli\line;
 use function cli\prompt;
 
 /**
- * Main function for the "calc" game.
+ * Main function for the game engine.
  *
  * @param string $condition The condition before the game.
- * @param callable $NumbersForReserch Callback function that provides a question and the correct answer.
+ * @param callable $generateQuestion Callback function that provides a question and the correct answer.
+ * @return void
  */
-function frameGame($condition, callable $NumbersForReserch)
+function frameGame(string $condition, callable $generateQuestion): void
 {
     // Приветствие игрока
     line('Welcome to the Brain Games!');
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     line($condition);
-    $flag = 0;
 
-    while ($flag != 3) {
-        [$question, $correctAnswer] = $NumbersForReserch();
+    // Счетчик правильных ответов
+    $correctAnswersCount = 0;
+
+    while ($correctAnswersCount !== 3) {
+        [$question, $correctAnswer] = $generateQuestion();
         line("Question: {$question}");
-        $answ = prompt('Your answer ');
-        if ($answ === (string)$correctAnswer) {
-            $flag++;
+        $answer = prompt('Your answer ');
+
+        if ($answer === (string)$correctAnswer) {
+            $correctAnswersCount++;
             line('Correct!');
         } else {
-            line("'$answ' is wrong answer ;(. Correct answer was '$correctAnswer'.", $answ, $correctAnswer);
+            line("'$answer' is wrong answer ;(. Correct answer was '$correctAnswer'.");
             line("Let's try again, %s!", $name);
             return;
         }
     }
-        line("Congratulations, %s!", $name);
+
+    line("Congratulations, %s!", $name);
 }

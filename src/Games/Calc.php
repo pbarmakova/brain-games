@@ -4,31 +4,47 @@ namespace BrainGames\Games;
 
 use function BrainGames\Engine\frameGame;
 
-function result(int $operandOne, int $operandTwo, string $randomOperator)
+/**
+ * Calculates the result of the given expression.
+ *
+ * @param int $operand1 The first operand.
+ * @param int $operand2 The second operand.
+ * @param string $operator The operator.
+ * @return int The result of the operation.
+ */
+function calculateResult(int $operand1, int $operand2, string $operator): int
 {
-    // Определяем результат оператора
-    switch ($randomOperator) {
+    switch ($operator) {
         case '+':
-            return($operandOne + $operandTwo);
+            return $operand1 + $operand2;
         case '-':
-            return($operandOne - $operandTwo);
+            return $operand1 - $operand2;
         case '*':
-            return($operandOne * $operandTwo);
+            return $operand1 * $operand2;
+        default:
+            throw new \InvalidArgumentException("Unsupported operator: $operator");
     }
 }
 
-function calc()
+/**
+ * Starts the "calc" game.
+ *
+ * @return void
+ */
+function runCalc(): void
 {
-    $rule = ('What is the result of the expression?');
+    $rule = 'What is the result of the expression?';
 
-    $NumbersForReserch = function () {
-        $operators = ["+", "-", "*"];
-        $operandOne = rand(0, 100);
-        $operandTwo = rand(0, 100);
-        $randomOperator = $operators[array_rand($operators)];
-        $question = ("{$operandOne} {$randomOperator} {$operandTwo}");
-        $correctQuestion = result($operandOne, $operandTwo, $randomOperator);
-        return [$question, $correctQuestion];
+    $generateQuestion = function () {
+        $operand1 = rand(MIN_OPERAND, MAX_OPERAND);
+        $operand2 = rand(MIN_OPERAND, MAX_OPERAND);
+        $operator = OPERATORS[array_rand(OPERATORS)];
+
+        $question = "{$operand1} {$operator} {$operand2}";
+        $correctAnswer = calculateResult($operand1, $operand2, $operator);
+
+        return [$question, $correctAnswer];
     };
-    frameGame($rule, $NumbersForReserch);
+
+    frameGame($rule, $generateQuestion);
 }

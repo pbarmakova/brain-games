@@ -9,29 +9,36 @@ use function BrainGames\Engine\frameGame;
  *
  * @return int[] The arithmetic progression array.
  */
-function arifmProgression(): array
+function generateArithmeticProgression(): array
 {
-    $firstNum = rand(0, 100);
-    $step = rand(1, 100);
-    $count = 10;
+    $firstNum = rand(MIN_OPERAND, MAX_OPERAND);
+    $step = rand(MIN_STEP, MAX_STEP); // Убедитесь, что шаг не слишком велик
+    $count = rand(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
     $progression = [];
+
     for ($i = 0; $i < $count; $i++) {
         $progression[] = $firstNum + ($i * $step);
     }
+
     return $progression;
 }
 
 /**
- * Randomly removes an element from the progression and returns the modified progression.
+ * Randomly hides an element from the progression and returns the modified progression.
  *
  * @param int[] $progression The arithmetic progression array.
- * @return array An array where the first element is the modified progression (with one number replaced by ".."), and the second element is the missing number.
+ * @return array
  */
-function missingIndex($progression)
+function hideElementInProgression(array $progression): array
 {
-    $missingIndex = rand(0, 9);
+    if (empty($progression)) {
+        throw new \InvalidArgumentException("Progression array is empty.");
+    }
+
+    $missingIndex = rand(0, count($progression) - 1);
     $missingNumber = $progression[$missingIndex];
-    $progression[$missingIndex] = "..";
+    $progression[$missingIndex] = ".."; // Рассмотрите возможность использовать специальное значение
+
     return [$progression, $missingNumber];
 }
 
@@ -40,13 +47,16 @@ function missingIndex($progression)
  *
  * @return void
  */
-function progress()
+function runProgressionGame(): void
 {
-    $rule = ('What number is missing in the progression?');
-    $NumbersForReserch = function () {
-        $progression = arifmProgression();
-        [$progression, $missingNumber] = missingIndex($progression);
+    $rule = 'What number is missing in the progression?';
+
+    $generateQuestion = function () {
+        $progression = generateArithmeticProgression();
+        [$progression, $missingNumber] = hideElementInProgression($progression);
+
         return [implode(' ', $progression), $missingNumber];
     };
-    frameGame($rule, $NumbersForReserch);
+
+    frameGame($rule, $generateQuestion);
 }
