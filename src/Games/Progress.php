@@ -31,9 +31,10 @@ function generateArithmeticProgression(): array
  */
 function hideElementInProgression(array $progression): array
 {
-    if (empty($progression)) {
+    if (count($progression) === 0) {
         throw new \InvalidArgumentException("Progression array is empty.");
     }
+
 
     $missingIndex = rand(0, count($progression) - 1);
     $missingNumber = $progression[$missingIndex];
